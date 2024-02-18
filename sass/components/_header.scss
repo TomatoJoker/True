@@ -1,0 +1,279 @@
+.header {
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    transition: background-color 1s ease;
+    &.over-overlay-bg {
+        background-color: $white;
+        transition: none;
+    }
+    @include r(1000) {
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px 0px rgba(197, 197, 197, .25);
+    }
+    &.sticky {
+        background: $white;
+        box-shadow: inset 0px -1px 0px rgba(197, 197, 197, .25);
+        padding: 8px 0px;
+        transition: none;
+        .header-section__logo {
+            width: 57px;
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        .menu {
+            @include r(1000) {
+                display: none;
+            }
+        }
+        .dropdown__wrapper {
+            right: 0px;
+            display: none;
+        }
+    }
+    &__right {
+        display: flex;
+        //column-gap: 32px;
+        align-items: center;
+        .menu {
+            margin-right: 32px;
+        }
+    }
+    &_white {
+        .menu__item a {
+            color: $white;
+            &:hover {
+                background-color: $white;
+            }
+        }
+        .header-section__icon {
+            color: $white;
+        }
+        &.sticky {
+            background-color: rgba(0,0,0,0.5);
+        }
+    }
+}
+
+.menu {
+    justify-content: center;
+    &__list {
+        display: flex;
+        //column-gap: 32px;
+        justify-content: center;
+        align-items: center;
+        li {
+            &:not(:last-child) {
+                margin-right: 32px;
+                @include r(1000) {
+                    margin-right: 0px;
+                }
+            }
+        }
+        @include r(1000) {
+            flex-direction: column;
+            row-gap: 48px;
+        }
+    }
+    &__item {
+        a {
+            @include font-Montserrat-Bold;
+            font-size: 16px;
+            color: $primary-txt;
+            line-height: 24px;
+            transition: color 0.3s ease;
+            &.active,
+            &:hover {
+                border-bottom: 2px solid $primary-txt;
+            }
+        }
+    }
+}
+
+.dropdown {
+    &.open {
+        .btn__primery {
+            .icon-communities {
+                display: none;
+            }
+            .icon-close {
+                display: block;
+            }
+        }
+    }
+    .btn__primery {
+        .icon-communities {
+            display: block;
+        }
+        .icon-close {
+            display: none;
+        }
+    }
+    &__wrapper {
+        position: absolute;
+        margin-top: 16px;
+        min-width: calc(248px + 16px * 2);
+        padding: 32px;
+        background: $white;
+        box-shadow: 0px 60px 94px rgba(0, 0, 0, 0.08), 0px 30.375px 40.9781px rgba(0, 0, 0, 0.054), 0px 12px 15.275px rgba(0, 0, 0, 0.04), 0px 2.625px 5.43437px rgba(0, 0, 0, 0.026);
+        border-radius: 8px;
+        @include r(576) {
+            min-width: 248px;
+            padding: 16px;
+        }
+    }
+    &__logo {
+        width: 65px;
+        display: block;
+        margin: auto;
+        margin-bottom: 16px;
+        img {
+            width: 100%;
+            height: auto;
+        }
+        @include r(576) {
+            margin-bottom: 8px;
+        }
+    }
+    &__list {
+        //column-gap: 16px;
+        //row-gap: 16px;
+        display: inline-flex;
+        flex-direction: column;
+        //@include r(576) {
+        //    row-gap: 8px;
+        //}
+    }
+    &__link {
+        flex: 100%;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include anim;
+        &:not(:last-child) {
+            margin-bottom: 16px;
+            @include r(576) {
+                margin-bottom: 8px;
+            }
+        }
+        img {
+            transition: inherit;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+        a {
+            @include font-Montserrat-Medium;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 8px;
+            transition: inherit;
+            color: $primary-txt;
+            text-transform: uppercase;
+            text-align: center;
+            &:hover {
+                color: $primary-middle-txt;
+            }
+            @include r(576) {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.mobile-menu {
+    width: 100%;
+    background: $white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: translateX(-100%);
+    @include anim;
+    &.open {
+        transform: translateX(0);
+    }
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 83px;
+        min-height: 100vh;
+        .menu {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+    }
+    .header-section {
+        padding: 8px 0px;
+    }
+    .btn-animation {
+        margin: auto;
+    }
+}
+
+.header-post {
+    //position: absolute;
+    position: fixed;
+    width: 100%;
+    padding: 32px 0px;
+    z-index: 99;
+    @include r(1000) {
+        padding: 13px 0px;
+    }
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        .bold {
+            @include css-lock(12, 14, 480, 1920);
+            line-height: 18px;
+        }
+        .bold,
+        .icon {
+            color: $primary-txt;
+        }
+        .bold {
+            margin-left: 5px;
+            margin-top: 1px;
+            &:after {
+                content: '';
+                height: 2px;
+                @include anim;
+                opacity: 0;
+                background: $primary-txt;
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+    &__link {
+        display: flex;
+        &:hover {
+            .bold:after {
+                opacity: 1;
+            }
+        }
+    }
+    &__item-center {
+        justify-content: center;
+        min-width: 310px;
+        @include r(1000) {
+            min-width: 252px;
+        }
+    }
+    .icon {
+        font-size: 24px;
+    }
+}

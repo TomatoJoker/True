@@ -1,0 +1,135 @@
+.footer {
+    border-top: 2px solid $primary-light;
+    &__logo {
+        display: block;
+        max-width: 114px;
+        img {
+            width: 100%;
+        }
+        @include r(1000) {
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 24px;
+        }
+        @include r(768) {
+            width: 75px;
+            margin-left: 0px;
+        }
+    }
+    &__top {
+        padding: 48px 0px 24px;
+        @include rmin(1001) {
+            display: grid;
+            grid-template-columns: repeat(12, 1f);
+            grid-gap: 0px 60px;
+            padding: 56px 0px;
+        }
+    }
+    &__left {
+        @include rmin(1001) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    }
+    &__right {
+        display: flex;
+        justify-content: space-between;
+        //column-gap: 40px;
+        //row-gap: 16px;
+        flex-wrap: wrap;
+        @include rmin(1001) {
+            grid-column-start: 3;
+            grid-column-end: 12;
+        }
+    }
+    &__item {
+        flex: 1;
+        @include r(767) {
+            flex: 100%;
+            border-bottom: 2px solid $primary-light;
+            &:not(:last-child) {
+                margin-bottom: 16px;
+            }
+        }
+        &:not(:last-child) {
+            margin-right: 40px;
+            @include r(767) {
+                margin-right: 0px;
+            }
+        }
+        .icon {
+            display: none;
+            @include r(767) {
+                display: block;
+                font-size: 24px;
+                color: $primary;
+            } 
+        }
+    }
+    &__list {
+        @include r(767) {
+            display: none;
+            padding-left: 16px;
+        }
+        .footer__link {
+            margin-bottom: 10px;
+            line-height: 16px;
+            @include r(767) {
+                margin-bottom: 16px;
+                line-height: 24px;
+            }
+        }
+    }
+    .h5-title,
+    h5 {
+        padding-bottom: 16px;
+        border-bottom: 2px solid $primary-light;
+        display: flex;
+        justify-content: space-between;
+        @include font-Montserrat-Medium;
+        align-items: center;
+        @include r(767) {
+            margin-bottom: 0px;
+            border-bottom: none;
+            cursor: pointer;
+        }
+    }
+    &__bottom {
+        margin-bottom: 64px;
+        display: flex;
+        justify-content: space-between;
+        @include r(1000) {
+            margin-bottom: 40px;
+        }
+    }
+    &__link a {
+        @include font-Montserrat-Bold;
+        color: $primary;
+        line-height: 24px;
+        font-size: 16px;
+        @include r(767) {
+            font-size: 12px;
+        }
+        @include anim;
+        &:hover {
+            color: $primary-middle-txt;
+        }
+    }
+    &__copyright {
+        font-size: 12px;
+        color: $primary-middle-txt;
+    }
+    &__privacy {
+        ul {
+            display: flex;
+        }
+        .footer__link {
+            &:not(:last-child):after {
+                content:'&';
+                margin-left: 5px;
+                margin-right: 8px;
+                color: $primary-middle-txt;
+            }
+        }
+    }
+}

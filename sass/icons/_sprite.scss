@@ -1,0 +1,42 @@
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  color: currentColor;
+  line-height: 1em;
+}
+
+.icon-arrow-down {
+  @extend %icon-arrow-down;
+}
+.icon-arrow-left {
+  @extend %icon-arrow-left;
+}
+
+.icon-arrow-right {
+  @extend %icon-arrow-right;
+}
+
+.icon-arrow-up {
+  @extend %icon-arrow-up;
+}
+
+.icon-arrow-down {
+  @extend %icon-arrow-down;
+}
+
+.icon-communities {
+  @extend %icon-communities;
+}
+
+.icon-menu {
+  @extend %icon-menu;
+}
+
+.icon-phone {
+  @extend %icon-phone;
+}
+
+.icon-close {
+  @extend %icon-сross;
+}

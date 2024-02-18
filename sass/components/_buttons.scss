@@ -1,0 +1,135 @@
+.btn {
+    @include font-Montserrat-Bold;
+    display: inline-flex;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 12px 32px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0);
+    @include anim;
+    @include r(1000) {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+    .icon {
+        display: none;
+        margin-left: 11px;
+        font-size: 24px;
+        @include r(1000) {
+            display: block;
+        }
+    }
+    &__center {
+        display: flex;
+        margin: auto;
+    }
+}
+
+.btn__primery {
+    background: $secondary;
+    color: $white;
+    &:hover {
+        background: $secondary-light;
+        color: $primary;
+    }
+}
+
+.btn__secondary {
+    //border: 2px solid $primary;
+    box-shadow: inset 0px 0px 0px 2px $primary;
+    color: $primary-txt;
+    &:hover,
+    &:focus {
+        border-color: $primary-middle;
+        color: $primary-middle-txt;
+    }
+}
+
+.tab {
+    padding: 12px 16px;
+    background: $primary-light;
+    color: $primary-txt;
+    border-radius: 34px;
+    font-size: 16px;
+    line-height: 24px;
+    @include anim;
+    @include font-Montserrat-Bold;
+    @include r(1000) {
+        font-size: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    &.active {
+        box-shadow: inset 0px 0px 0px 2px $primary;
+        //color: $primary-txt;
+    }
+    &:hover {
+        background: $primary;
+        color: $white;
+    }
+    &__dark {
+        color: $dark-color;
+        background-color: $dark-light;
+        &.active {
+            box-shadow: inset 0px 0px 0px 2px $dark-color;
+        }
+        &:hover {
+            background: $dark-color;
+        }
+    }
+    &__green {
+        color: $green-color;
+        background-color: $green-light;
+        &.active {
+            box-shadow: inset 0px 0px 0px 2px $green-color;
+        }
+        &:hover {
+            background: $green-color;
+        }
+    }
+    &__yellow {
+        color: $secondary-txt;
+        background-color: $secondary-light;
+        &.active {
+            box-shadow: inset 0px 0px 0px 2px $secondary;
+        }
+        &:hover {
+            background: $secondary;
+        }
+    }
+}
+
+.btn-animation {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 4px $silver;
+    background: $primary;
+    padding: 16px 111px 16px 40px;
+    position: relative;
+    overflow: hidden;
+    @include anim;
+    @include r(767) {
+        padding: 16px 132px 16px 24px;
+    }
+    &:hover {
+        box-shadow: 0px 0px 0px 6px $silver
+    }
+    .h4-title,
+    h4 {
+        color: $white;
+        margin-bottom: 0px;
+        @include r(767) {
+            font-size: 16px;
+        } 
+    }
+    .icon {
+        font-size: 103px;
+        border-radius: 50%;
+        border: 5px solid white;
+        position: absolute;
+        background: rgb(247,240,0);
+        background: linear-gradient(30deg, rgba($yellow, 1) 50%, rgba($blue, 1) 50%); 
+        right: -20px;
+    }
+}
